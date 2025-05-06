@@ -45,6 +45,8 @@ def process_files(template_file, data_folder):
             # Special case: if normalized column equals 'work_email', map it to 'email'
             elif norm_col == "work_email" and "email" in normalized_template_mapping.values():
                 rename_dict[col] = "email"
+            elif norm_col == "company_name" and "company" in normalized_template_mapping.values():
+                rename_dict[col] = "company"
                 
         # Rename the data file columns accordingly
         data_df = data_df.rename(columns=rename_dict)
